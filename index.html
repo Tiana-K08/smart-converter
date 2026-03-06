@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Converter</title>
+    <meta
+      name="description"
+      content="Free online unit converter for length, weight, temperature. Fast and easy conversions."
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Smart Converter</h1>
+    </header>
+
+    <main>
+      <div>
+        <form id="converter-form">
+          <select id="select-type" aria-label="Conversion type">
+            <option value="length" selected>Length Conversion</option>
+            <option value="weight">Weight Conversion</option>
+            <option value="temperature">Temperature Conversion</option>
+          </select>
+
+          <div>
+            <label for="input-value">Value</label>
+            <input type="number" id="input-value" placeholder="Enter a value" />
+          </div>
+
+          <div>
+            <div>
+              <label for="from-unit">From</label>
+              <select id="from-unit">
+                <option value="" selected disabled hidden>Select a unit</option>
+                <optgroup label="Metric System">
+                  <option value="mm">millimeter</option>
+                  <option value="cm">centimeter</option>
+                </optgroup>
+                <optgroup label="Imperial System">
+                  <option value="in">inch</option>
+                  <option value="ft">foot</option>
+                </optgroup>
+              </select>
+            </div>
+            <div>
+              <label for="to-unit">To</label>
+              <select id="to-unit">
+                <option value="" selected disabled hidden>Select a unit</option>
+                <optgroup label="Metric System">
+                  <option value="mm">millimeter</option>
+                  <option value="cm">centimeter</option>
+                </optgroup>
+                <optgroup label="Imperial System">
+                  <option value="in">inch</option>
+                  <option value="ft">foot</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <div aria-live="polite">
+          <span id="result">---</span>
+        </div>
+
+        <p id="error-message" role="alert" aria-live="assertive">
+          Conversion Error
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        © 2026 Tetiana&nbsp;Kononenko. Licensed under the
+        <a
+          href="https://opensource.org/license/MIT"
+          target="_blank"
+          rel="noopener noreferrer"
+          >MIT&nbsp;License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>
