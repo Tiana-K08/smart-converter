@@ -1,0 +1,145 @@
+/* =============== Reset =============== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =============== Variables =============== */
+:root {
+
+  /* Colors - base palette */
+  --color-primary-dark: #2C9685;
+  --color-primary-base: #2bbcaa;
+  --color-primary-light: #6ee7d8;
+  --color-primary-lighter: #effffc;
+  --color-accent-base: #fff83e;
+  --color-accent-light: #fffcb1;
+
+  --color-neutral-dark: #1f2933;
+  --color-neutral-medium: #5a5f61;
+  --color-neutral-light: #878e8c;
+  --color-neutral-white: #ffffff;
+
+  /* Semantic colors */
+  --color-text-main: var(--color-neutral-dark);
+  --color-text-muted: var(--color-neutral-medium);
+  --color-text-accent: var(--color-accent-base);
+  --color-placeholder: var(--color-neutral-light);
+
+  --color-bg-page: var(--color-primary-base);
+  --color-bg-surface: var(--color-neutral-white);
+  --color-bg-result: var(--color-primary-lighter);
+  --color-bg-error: var(--color-accent-light);
+
+  /* Gradients */
+  --gradient-bg-page: linear-gradient(
+    to bottom,
+    var(--color-primary-dark) 0%,
+    var(--color-primary-base) 30%,
+    var(--color-primary-light) 65%,
+    var(--color-primary-light) 80%,
+    var(--color-primary-base) 100%
+  );
+
+  /* Typography */
+  --font-family-base: "Noto Sans", system-ui, sans-serif;
+  --font-size-base: clamp(1rem, 0.7rem + 0.5vw, 1.25rem);
+
+  --font-size-sm: calc(var(--font-size-base) * 0.87);
+  --font-size-lg: calc(var(--font-size-base) * 1.5);  /* 1.6 / 1.65 */
+  --font-size-xl: calc(var(--font-size-base) * 2.2);
+
+  --line-height-base: 1.5;
+  --line-height-heading: 1.2;
+
+  /* Spacing */
+  --space-2xs: 0.125rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3rem;
+
+  /* Containers */
+  --container-width-480: 480px;
+}
+
+/* =============== Base styles =============== */
+html {
+  font-size: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  background-color: var(--color-bg-page);
+  background-image: var(--gradient-bg-page);
+  color: var(--color-text-main);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span {
+  overflow-wrap: anywhere;
+}
+
+a, button, input, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+a, button, label, select {
+  cursor: pointer;
+}
+
+/* =============== Layout =============== */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+}
+
+.main {
+  flex: 1;
+  width: 80%;
+  max-width: var(--container-width-480);
+}
+
+.footer {
+  padding: var(--space-md) var(--space-xl);
+  text-align: center;
+}
+
+/* =============== Components =============== */
+.header__title {
+  color: var(--color-text-accent);
+}
+
+.converter {
+  background-color: var(--color-bg-surface);
+}
+
+.footer__text {
+  font-size: var(--font-size-sm);
+}
