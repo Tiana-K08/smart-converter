@@ -48,10 +48,10 @@
             />
           </div>
 
-          <div class="converter__units">
+          <div class="converter__units-wrapper">
             <div class="converter__field-wrapper">
               <label for="from-unit" class="converter__label">From</label>
-              <select id="from-unit" class="converter__field">
+              <select id="from-unit" class="converter__field" required>
                 <option value="" selected disabled hidden>Select a unit</option>
                 <optgroup label="Metric System">
                   <option value="mm">millimeter</option>
@@ -63,9 +63,10 @@
                 </optgroup>
               </select>
             </div>
+
             <div class="converter__field-wrapper">
               <label for="to-unit" class="converter__label">To</label>
-              <select id="to-unit" class="converter__field">
+              <select id="to-unit" class="converter__field" required>
                 <option value="" selected disabled hidden>Select a unit</option>
                 <optgroup label="Metric System">
                   <option value="mm">millimeter</option>
@@ -78,11 +79,16 @@
               </select>
             </div>
           </div>
-        </form>
 
-        <div class="converter__result" aria-live="polite">
-          <span id="result">---</span>
-        </div>
+          <output
+            id="result"
+            class="converter__result"
+            for="input-value from-unit to-unit"
+            aria-live="polite"
+          >
+            ---
+          </output>
+        </form>
 
         <p
           id="error-message"

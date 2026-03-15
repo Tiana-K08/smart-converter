@@ -34,6 +34,10 @@
   --color-bg-result: var(--color-primary-lighter);
   --color-bg-error: var(--color-accent-light);
 
+  --color-border-strong: var(--color-primary-base);
+  --color-border-light: rgba(43, 188, 171, 0.35);
+  --color-border-neutral: var(--color-neutral-dark);
+
   /* Gradients */
   --gradient-bg-page: linear-gradient(
     to bottom,
@@ -49,7 +53,7 @@
   --font-size-base: clamp(1rem, 0.7rem + 0.5vw, 1.25rem);
 
   --font-size-sm: calc(var(--font-size-base) * 0.87);
-  --font-size-lg: calc(var(--font-size-base) * 1.5);  /* 1.6 / 1.65 */
+  --font-size-lg: calc(var(--font-size-base) * 1.5);
   --font-size-xl: calc(var(--font-size-base) * 2.2);
 
   --line-height-base: 1.5;
@@ -65,8 +69,20 @@
   --space-2xl: 2.5rem;
   --space-3xl: 3rem;
 
-  /* Containers */
-  --container-width-480: 480px;
+  /* Borders & Radius */
+  --border-width: 2px;
+
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1rem;
+
+  /* Shadows */
+  --shadow-neutral-dark: 0 8px 20px 2px rgba(0, 0, 0, 0.18);
+  --shadow-primary: 0 0 2px 4px rgba(43, 188, 171, 0.3);
+
+  /* Layout */
+  --content-max-width: 480px;
+
+  --field-height: 52px;
 }
 
 /* =============== Base styles =============== */
@@ -116,6 +132,7 @@ a, button, label, select {
 }
 
 .header {
+  width: 100%;
   padding: var(--space-2xl) var(--space-xl);
   text-align: center;
 }
@@ -123,11 +140,12 @@ a, button, label, select {
 .main {
   flex: 1;
   width: 80%;
-  max-width: var(--container-width-480);
+  max-width: var(--content-max-width);
 }
 
 .footer {
-  padding: var(--space-md) var(--space-xl);
+  width: 100%;
+  padding: var(--space-3xl) var(--space-xl) var(--space-lg);
   text-align: center;
 }
 
@@ -137,9 +155,113 @@ a, button, label, select {
 }
 
 .converter {
+  width: 100%;
+  padding: var(--space-lg) var(--space-xl) var(--space-xl);
   background-color: var(--color-bg-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-neutral-dark);
+}
+
+.converter__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.converter__type {
+  width: 100%;
+  height: var(--field-height);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-sm);
+  font-weight: 700;
+  text-align: center;
+}
+
+.converter__type:focus-visible {
+  outline-color: var(--color-border-neutral);
+}
+
+.converter__units-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.converter__label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.converter__field {
+  width: 100%;
+  height: var(--field-height);
+  padding-inline: 12px;
+  border: var(--border-width) solid var(--color-border-light);
+  border-radius: var(--border-radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.converter__field:focus {
+  outline: none;
+  border: var(--border-width) solid var(--color-border-strong);
+  box-shadow: var(--shadow-primary);
+}
+
+input.converter__field::placeholder {
+  color: var(--color-placeholder);
+}
+
+select.converter__field:invalid {
+  color: var(--color-placeholder);
+}
+
+select.converter__field optgroup {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+select.converter__field option {
+  font-style: normal;
+  color: var(--color-text-main);
+}
+
+.converter__result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(2 * var(--field-height));
+  margin-top: var(--space-md);
+  background-color: var(--color-bg-result);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.converter__error {
+  padding: var(--space-md);
+  margin-top: var(--space-xl);
+  background-color: var(--color-bg-error);
+  border-radius: var(--border-radius-sm);
 }
 
 .footer__text {
   font-size: var(--font-size-sm);
+}
+
+/* =============== Responsive =============== */
+@media (min-width: 490px) {
+  .converter__type {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (min-width: 600px) {
+  .converter__units-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
 }
