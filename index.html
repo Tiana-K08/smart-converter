@@ -31,11 +31,7 @@
             id="select-type"
             class="converter__type"
             aria-label="Converter type"
-          >
-            <option value="length" selected>Length Conversion</option>
-            <option value="weight">Weight Conversion</option>
-            <option value="temperature">Temperature Conversion</option>
-          </select>
+          ></select>
 
           <div class="converter__field-wrapper">
             <label for="input-value" class="converter__label">Value</label>
@@ -51,32 +47,20 @@
           <div class="converter__units-wrapper">
             <div class="converter__field-wrapper">
               <label for="from-unit" class="converter__label">From</label>
-              <select id="from-unit" class="converter__field" required>
-                <option value="" selected disabled hidden>Select a unit</option>
-                <optgroup label="Metric System">
-                  <option value="mm">millimeter</option>
-                  <option value="cm">centimeter</option>
-                </optgroup>
-                <optgroup label="Imperial System">
-                  <option value="in">inch</option>
-                  <option value="ft">foot</option>
-                </optgroup>
-              </select>
+              <select
+                id="from-unit"
+                class="converter__field js-select-unit"
+                required
+              ></select>
             </div>
 
             <div class="converter__field-wrapper">
               <label for="to-unit" class="converter__label">To</label>
-              <select id="to-unit" class="converter__field" required>
-                <option value="" selected disabled hidden>Select a unit</option>
-                <optgroup label="Metric System">
-                  <option value="mm">millimeter</option>
-                  <option value="cm">centimeter</option>
-                </optgroup>
-                <optgroup label="Imperial System">
-                  <option value="in">inch</option>
-                  <option value="ft">foot</option>
-                </optgroup>
-              </select>
+              <select
+                id="to-unit"
+                class="converter__field js-select-unit"
+                required
+              ></select>
             </div>
           </div>
 
