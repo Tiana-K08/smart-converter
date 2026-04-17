@@ -1,5 +1,4 @@
-// =============== Measurement Units Configuration ===============
-const converterConfig = {
+export const converterConfig = Object.freeze({
   length: {
     baseUnit: 'm',
     systems: {
@@ -51,4 +50,4 @@ const converterConfig = {
       },
     },
   },
-};
+});
