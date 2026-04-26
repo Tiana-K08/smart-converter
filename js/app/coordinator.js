@@ -1,12 +1,14 @@
 import { elements } from '../ui/domElements.js';
-import { state } from '../state/appState.js';
+import { getCurrentConverterType } from '../state/appState.js';
 import { selectMeasurementSystems } from '../selectors/converterSelectors.js';
-import { renderAllUnitSelects } from '../ui/converterRendering.js';
+import { renderAllUnitSelects } from '../ui/converterRender.js';
 
 /**
  * Updates units in select elements based on the measurement systems for the current converter type.
  */
 export function updateUnitsByConverterType() {
-  const systems = selectMeasurementSystems(state.currentConverterType);
+  const type = getCurrentConverterType();
+  const systems = selectMeasurementSystems(type);
+
   renderAllUnitSelects(elements.unitSelects, systems);
 }

@@ -4,8 +4,8 @@ import {
   selectInitialConverterType,
   selectAllConverterTypes,
 } from '../selectors/converterSelectors.js';
-import { renderConverterTypes } from '../ui/converterRendering.js';
-import { updateUnitsByConverterType } from './controller.js';
+import { renderConverterTypes } from '../ui/converterRender.js';
+import { updateUnitsByConverterType } from './coordinator.js';
 import { handleConverterTypeChange } from './eventHandlers.js';
 
 export function initApp() {

@@ -22,5 +22,13 @@ export function selectAllConverterTypes() {
  * @returns {Object[]} the array of measurement system objects { label, units }.
  */
 export function selectMeasurementSystems(type) {
-  return Object.values(converterConfig[type].systems);
+  const config = converterConfig[type];
+
+  if (!config) {
+    throw new Error(
+      `[selectMeasurementSystems] Unknown converter type: ${type}`,
+    );
+  }
+
+  return Object.values(config.systems);
 }

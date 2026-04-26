@@ -1,11 +1,15 @@
-export const state = {
+const state = {
   currentConverterType: null,
 };
 
-/**
- * Updates the current converter type in the application state.
- * @param {string} type - the new converter type to set.
- */
-export function setCurrentConverterType(type) {
-  state.currentConverterType = type;
+export function getCurrentConverterType() {
+  return state.currentConverterType;
+}
+
+export function setCurrentConverterType(newType) {
+  if (typeof newType !== 'string') {
+    throw new TypeError('[setCurrentConverterType] newType must be a string');
+  }
+
+  state.currentConverterType = newType;
 }

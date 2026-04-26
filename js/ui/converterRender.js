@@ -3,7 +3,7 @@ import {
   addPlaceholderOption,
   addOptions,
   addOptGroup,
-} from './renderingUtils.js';
+} from './renderUtils.js';
 
 /**
  * Renders converter types as options inside a select element.
@@ -11,6 +11,16 @@ import {
  * @param {string[]} types - the array of converter types.
  */
 export function renderConverterTypes(select, types) {
+  // if (!select) {
+  //   throw new Error('[UI] Missing select element in renderConverterTypes');
+  // }
+
+  // if (!Array.isArray(types)) {
+  //   throw new Error(
+  //     '[UI] Invalid types in renderConverterTypes: expected array',
+  //   );
+  // }
+
   const formattedTypes = types.map((type) => ({
     value: type,
     label: `${capitalize(type)} Conversion`,
@@ -27,6 +37,16 @@ export function renderConverterTypes(select, types) {
  * @param {Object[]} unitSystems - the array of unit system objects { label, units }.
  */
 export function renderConverterUnits(select, unitSystems) {
+  // if (!select) {
+  //   throw new Error('[UI] Missing select element in renderConverterUnits');
+  // }
+
+  // if (!Array.isArray(unitSystems)) {
+  //   throw new Error(
+  //     '[UI] Invalid unitSystems in renderConverterUnits: expected array',
+  //   );
+  // }
+
   select.replaceChildren();
   addPlaceholderOption(select, 'Select a unit');
 
