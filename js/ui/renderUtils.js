@@ -5,11 +5,11 @@
  * @param {string} text - the placeholder text to display.
  */
 export function addPlaceholderOption(container, text) {
-  // if (!(container instanceof HTMLSelectElement)) {
-  //   throw new TypeError(
-  //     '[addPlaceholderOption] Expected container to be a HTMLSelectElement',
-  //   );
-  // }
+  if (!(container instanceof HTMLSelectElement)) {
+    throw new Error(
+      '[addPlaceholderOption] container must be HTMLSelectElement',
+    );
+  }
 
   const placeholder = document.createElement('option');
   placeholder.value = '';
@@ -27,18 +27,18 @@ export function addPlaceholderOption(container, text) {
  * @param {Object[]} optionItems - the array of objects { value, label }.
  */
 export function addOptions(container, optionItems) {
-  // if (
-  //   !(container instanceof HTMLSelectElement) &&
-  //   !(container instanceof HTMLOptGroupElement)
-  // ) {
-  //   throw new TypeError(
-  //     '[addOptions] Expected container to be a HTMLSelectElement or HTMLOptGroupElement',
-  //   );
-  // }
+  if (
+    !(container instanceof HTMLSelectElement) &&
+    !(container instanceof HTMLOptGroupElement)
+  ) {
+    throw new Error(
+      '[addOptions] container must be HTMLSelectElement or HTMLOptGroupElement',
+    );
+  }
 
-  // if (!Array.isArray(optionItems)) {
-  //   throw new TypeError('[addOptions] Expected optionItems to be an array');
-  // }
+  if (!Array.isArray(optionItems)) {
+    throw new TypeError('[addOptions] optionItems must be array');
+  }
 
   optionItems.forEach((item) => {
     const option = document.createElement('option');
@@ -56,11 +56,9 @@ export function addOptions(container, optionItems) {
  * @param {Object[]} optionItems - the array of objects { value, label }.
  */
 export function addOptGroup(container, groupLabel, optionItems) {
-  // if (!(container instanceof HTMLSelectElement)) {
-  //   throw new TypeError(
-  //     '[addOptGroup] Expected container to be a HTMLSelectElement',
-  //   );
-  // }
+  if (!(container instanceof HTMLSelectElement)) {
+    throw new Error('[addOptGroup] container must be HTMLSelectElement');
+  }
 
   const optGroup = document.createElement('optgroup');
   optGroup.label = groupLabel;

@@ -50,8 +50,10 @@ export function renderConverterUnits(select, unitSystems) {
   select.replaceChildren();
   addPlaceholderOption(select, 'Select a unit');
 
+  const isGrouped = unitSystems.length > 1;
+
   unitSystems.forEach((system) => {
-    if (unitSystems.length > 1) {
+    if (isGrouped) {
       addOptGroup(select, system.label, system.units);
     } else {
       addOptions(select, system.units);
