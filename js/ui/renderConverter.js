@@ -3,7 +3,7 @@ import {
   addPlaceholderOption,
   addOptions,
   addOptGroup,
-} from './renderUtils.js';
+} from './renderHelpers.js';
 
 /**
  * Renders converter types as options inside a select element.
@@ -36,7 +36,7 @@ export function renderConverterTypes(select, types) {
  * @param {HTMLSelectElement} select - the select element to populate.
  * @param {Object[]} unitSystems - the array of unit system objects { label, units }.
  */
-export function renderConverterUnits(select, unitSystems) {
+function renderConverterUnits(select, unitSystems) {
   // if (!select) {
   //   throw new Error('[UI] Missing select element in renderConverterUnits');
   // }

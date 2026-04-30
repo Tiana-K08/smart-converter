@@ -4,7 +4,7 @@ import {
   selectInitialConverterType,
   selectAllConverterTypes,
 } from '../selectors/converterSelectors.js';
-import { renderConverterTypes } from '../ui/converterRender.js';
+import { renderConverterTypes } from '../ui/renderConverter.js';
 import { updateUnitsByConverterType } from './coordinator.js';
 import { handleConverterTypeChange } from './eventHandlers.js';
 
